@@ -3,8 +3,9 @@ import { StyleSheet } from 'react-native';
 import { Context } from '../context/BlogContext';
 import BlogPostForm from '../components/BlogPostForm';
 
-const CreateScreen = ({ navigation }) => {
-  const { addBlogPost } = useContext(Context);
+const EditScreen = ({ navigation }) => {
+  const { state } = useContext(Context),
+    blogPost = state.find(blogPost => blogPost.id === navigation.getParam('id'));
 
   return <BlogPostForm />
 };
@@ -12,4 +13,4 @@ const CreateScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
 });
 
-export default CreateScreen;
+export default EditScreen;
